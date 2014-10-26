@@ -98,7 +98,8 @@ html,body{
 	margin: 16px auto 0 auto;
 }
 #mail-input{
-	width: 518px;
+	width: 368px;
+	float: left;
 	height: 58px;
 	padding-top: 2px;
 	font-size: 18px;
@@ -124,8 +125,9 @@ html,body{
 	color: rgba( 255, 255, 255, 0.7 );
 }
 #mail-form-button{
+	float: left;
 	width: 140px;
-	height: 44px;
+	height: 49px;
 	padding-top: 14px;
 	font-size: 23px;
 	background-color: #FFFFFF;
@@ -325,7 +327,7 @@ html,body{
 	margin: 16px auto 0 auto;
 }
 #project-input{
-	width: 518px;
+	width: 368px;
 	height: 58px;
 	padding-top: 2px;
 	font-size: 18px;
@@ -334,6 +336,7 @@ html,body{
 	background-color: transparent;
 	font-size: 20px;
 	color: #FFFFFF;
+	float: left;
 }
 #project-input:focus{
 	outline: none;
@@ -352,7 +355,7 @@ html,body{
 }
 #project-form-button{
 	width: 140px;
-	height: 44px;
+	height: 49px;
 	padding-top: 14px;
 	font-size: 23px;
 	background-color: #FFFFFF;
@@ -362,4 +365,5 @@ html,body{
 	position: relative;
 	z-index: 90;
 	color: #333333;
+	float: left;
 }
