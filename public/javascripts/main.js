@@ -121,11 +121,12 @@ $(document).ready(function(){
 				var interval = 15;
 				var fixHeight = function(){
 					var windowHeight = $("#contents").innerHeight() + $("#header").innerHeight() + $("#footer").innerHeight();
-					if($("#bean-area").innerHeight() < windowHeight){
+/*					if($("#bean-area").innerHeight() < windowHeight){
 						$("#bean-area").css("height", windowHeight+"px");
 					}else{
 						$("#bean-area").height("height", "100%");
 					}
+*/
 				}
 				var update = function(){
 					fixHeight();
