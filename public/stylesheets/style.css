@@ -72,29 +72,24 @@ html,body{
 	margin-top: 15px;
 	font-size: 26px;
 	text-align: center;
-	text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
-	font-weight: bold;
 }
 #top-service{
 	margin-top: 73px;
 	font-size: 21px;
 	letter-spacing: 0em;
 	text-align: center;
-	text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
 }
 #top-release{
-	margin-top: 10px;
+	margin-top: 73px;
 	font-size: 40px;
 	letter-spacing: 0.1em;
 	text-align: center;
-	text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
 	font-weight: bold;
 }
 #sound-notice{
 	margin-top: 10px;
 	font-size: 13px;
 	text-align: center;
-	text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
 }
 #mail-form{
 	position: relative;
@@ -103,7 +98,8 @@ html,body{
 	margin: 16px auto 0 auto;
 }
 #mail-input{
-	width: 518px;
+	width: 368px;
+	float: left;
 	height: 58px;
 	padding-top: 2px;
 	font-size: 18px;
@@ -121,18 +117,17 @@ html,body{
 	position: relative;
 	top: -2px;
 	color: rgba( 255, 255, 255, 0.7 );
-	text-shadow: 1px 1px 3px #000000;
 }
 /*for Firefox*/
 #mail-input:-moz-placeholder {
 	position: relative;
 	top: -2px;
 	color: rgba( 255, 255, 255, 0.7 );
-	text-shadow: 1px 1px 3px #000000;
 }
 #mail-form-button{
+	float: left;
 	width: 140px;
-	height: 44px;
+	height: 49px;
 	padding-top: 14px;
 	font-size: 23px;
 	background-color: #FFFFFF;
@@ -168,14 +163,14 @@ html,body{
 #footer{
 	width: 100%;
 	height: 60px;
-	background-color: green;
+	background-color: black;
 	position: relative;
 	z-index: 95;
 }
 #copyright{
 	text-align: center;
 	font-size: 18px;
-	color: #0A0144;
+	color: #ffffff;
 	padding-top: 19px;
 }
 
@@ -292,24 +287,33 @@ html,body{
 	height: 36px;
 }
 #content-line{
-	background-color: blue;	
+	background-color: #ffcc00;	
 }
 #idea{
+	position: relative;
+	width: 520px;
+	height: auto;
+	margin: 16px auto 0 auto;
 
 }
 #idea-description{
+	padding-top: 5px;
+	font-size: 26px;
+	text-align: center;
 
 }
 #idea-ui{
-
 }
 .idea-li{
 	list-style: none;
+	font-size: 16px;
+
 }
 .idea-content{
 
 }
 .idea-content-text{
+	margin: 20px;
 
 }
 .idea-content-footer{
@@ -322,7 +326,7 @@ html,body{
 	margin: 16px auto 0 auto;
 }
 #project-input{
-	width: 518px;
+	width: 368px;
 	height: 58px;
 	padding-top: 2px;
 	font-size: 18px;
@@ -331,6 +335,7 @@ html,body{
 	background-color: transparent;
 	font-size: 20px;
 	color: #FFFFFF;
+	float: left;
 }
 #project-input:focus{
 	outline: none;
@@ -340,18 +345,16 @@ html,body{
 	position: relative;
 	top: -2px;
 	color: rgba( 255, 255, 255, 0.7 );
-	text-shadow: 1px 1px 3px #000000;
 }
 /*for Firefox*/
 #project-input:-moz-placeholder {
 	position: relative;
 	top: -2px;
 	color: rgba( 255, 255, 255, 0.7 );
-	text-shadow: 1px 1px 3px #000000;
 }
 #project-form-button{
 	width: 140px;
-	height: 44px;
+	height: 49px;
 	padding-top: 14px;
 	font-size: 23px;
 	background-color: #FFFFFF;
@@ -361,4 +364,5 @@ html,body{
 	position: relative;
 	z-index: 90;
 	color: #333333;
+	float: left;
 }
