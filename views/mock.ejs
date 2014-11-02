@@ -5,13 +5,13 @@
 <script src="/javascripts/libs/jquery/dist/jquery.js"></script>
 <script>
 $(document).ready(function() {
-  var socket = io('mock');
+  var socket = io('/mock');
   $('form').submit(function() {
-    socket.emit('chat message', $('input').val());
+    socket.emit('project chat', $('input').val());
     $('input').val('');
     return false;
   });
-  socket.on('chat message', function(data) {
+  socket.on('project chat', function(data) {
     $('div').prepend(data + '<br>');
   });
 });
