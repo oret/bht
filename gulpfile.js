@@ -31,7 +31,7 @@ gulp.task('server', function () {
   nodemon({
     script: './bin/www', // express 4系の場合
     // script: 'app.js', // express 3系の場合
-    ext: 'html js ejs css',
+    ext: 'html js ejs css www',
     ignore: ['ignored.js', 'node_modules', 'bower_components'] })
     .on('start', function () {
       console.log('started!');
