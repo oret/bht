@@ -12,7 +12,7 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    var sql    = 'SELECT * FROM lp_msg limit 1';
+    var sql    = 'SELECT * FROM lp_msg ORDER BY id DESC LIMIT 10';
     pool.query(sql, function(err, results) {
           if(err) return console.error(err);
   res.render('index', { title: 'Express', results:results });
@@ -30,6 +30,11 @@ router.get('/get_post', function(req, res) {
           if(err) return console.error(err);
           res.json(results);
     });
+});
+
+/* mock. */
+router.get('/mock', function(req, res) {
+  res.render('mock', { title: 'mock' });
 });
 
 module.exports = router;
