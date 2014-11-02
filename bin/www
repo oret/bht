@@ -1,9 +1,44 @@
 #!/usr/bin/env node
 var debug = require('debug')('bht');
 var app = require('../app');
+var WebSocketServer = require('ws').Server;
+var mysql = require('mysql');
 
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
+});
+
+var pool = mysql.createPool({
+  connectionLimit : 10,
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'obaka',
+  password: process.env.DB_PASS || 'obaka',
+  database: process.env.DB_NAME || 'bht'
+});
+
+app.get('/users', function (req, res) {
+  pool.query('select * from users', function (err, rows) {
+    res.render('users', { title: 'Express Users', users: rows });
+  });
+});
+
+var wss = new WebSocketServer({server: server});
+wss.on('connection', function(ws) {
+    ws.on('message', function(data){
+      var data = JSON.parse(data);
+      switch (data.type) {
+        case 'add':
+          pool.query('INSERT INTO lp_msg (title) values(?)',  data.body, function (err, result) {
+              if(err) return console.error(err);
+          });
+          wss.clients.forEach(function(client) {
+            client.send(JSON.stringify(data));
+          });
+          break;
+        default:
+          break;
+      }
+    });
 });

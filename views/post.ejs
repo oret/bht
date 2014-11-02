@@ -1,0 +1,60 @@
+<html lang="ja" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="simplechat">
+<head>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/united/bootstrap.min.css">
+</head>
+<body style="background-color:#999">
+<div class="container" ng-controller="ChatCtrl">
+
+<div class="row">
+<h1>simple chat</h1>
+
+<div class="col-sm-12" style="padding:0px">
+  <div class="input-group">
+    <input type="text" class="form-control" ng-model="input_body" placeholder="message...">
+    <span class="input-group-btn">
+      <span ng-click="post()" type="button" class="btn btn-primary">post</span>
+    </span>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+
+<div id="feed" class="col-sm-12 well" style="background-color:#fff; height: 400px;
+overflow: scroll;">
+  <div ng-repeat="post in posts | orderBy:'-id' ">{{post.body}}</div>
+</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-resource.js"></script>
+<script>
+  var host = location.origin.replace(/^http/, 'ws')
+  var ws = new WebSocket(host);
+
+  angular.module('simplechat', ["ngResource"])
+
+  .controller('ChatCtrl', function($scope, $resource, $http){
+    $resource("/get_post").query(function(ret){
+      $scope.posts = ret;
+      console.log($scope.posts);
+    });
+
+    $scope.post = function(){
+      ws.send(JSON.stringify({
+        type: 'add',
+        body: $scope.input_body
+      }));
+      $scope.input_body = '';
+    }
+
+    ws.onmessage = function (event) {
+      var post = JSON.parse(event.data);
+      $scope.posts.unshift(post);
+      $scope.$apply();
+    };
+
+  });
+</script>
+</body>
+</html>
