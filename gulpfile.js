@@ -42,7 +42,7 @@ gulp.task('server', function () {
 gulp.task('bower-files', function() {
     return gulp.src(mainBowerFiles(/* options */),
                { base: './bower_components' })
-               .pipe(gulp.dest('./public/javascripts/libs'))
+               .pipe(gulp.dest('./public/javascripts/libs'));
 });
 
 gulp.task('lint', ['gjslint', 'jshint']);
