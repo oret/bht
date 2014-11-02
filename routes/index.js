@@ -12,7 +12,11 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+    var sql    = 'SELECT * FROM lp_msg limit 1';
+    pool.query(sql, function(err, results) {
+          if(err) return console.error(err);
+  res.render('index', { title: 'Express', results:results });
+    });
 });
 
 /* GET home page. */

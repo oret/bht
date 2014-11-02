@@ -6,9 +6,7 @@
 			bakapp
 		</title>
 		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript">
 </script>
-		<script src="javascripts/main.js" type="text/javascript">
 </script>
 	</head>
 	<body>
@@ -23,12 +21,14 @@
 				<div id="top-release">
 					2015年3月中旬スタート!!
 				</div>
+<form action="">
 				<div id="mail-form">
-					<input type="text" id="mail-input" placeholder="メールアドレスを入れお知らせを受け取る">
+					<input type="text" autocomplete="off" id="mail-input" placeholder="メールアドレスを入れお知らせを受け取る">
 					<div id="mail-form-button">
 						送信
 					</div>
 				</div>
+</form>
 			</div>
 			<div id="idea">
 				<div id="idea-description">
@@ -36,13 +36,14 @@
 						みんなのおばかアプリプロジェクト
 					</h3>
 				</div>
+<form id="pj-form" action="">
 				<div id="project-form">
-					<input type="text" id="project-input" placeholder="作りたいおばかアプリを入力する">
+					<input type="text" id="pj-title" placeholder="作りたいおばかアプリを入力する">
 					<div id="project-form-button">
 						送信
 					</div>
 				</div>
-				<ul>
+				<ul id="messages">
 					<li class="idea-li">
 						<div class="idea-content-text">
 							大人でもピコピコ歩きたい！歩くと音が鳴るのスマホアプリ
@@ -69,6 +70,7 @@
 					</li>
 				</ul>
 			</div>
+</form>
 			<div id="footer">
 				<div id="copyright">
 					©2015 Bakapp
@@ -115,5 +117,25 @@
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+<script src="/socket.io/socket.io.js"></script>
+<script src="javascripts/libs/jquery/dist/jquery.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+	</BODY>
+<script>
+var socket = io();
+  $('#pj-form').submit(function(){
+    socket.emit('chat message', $('#pj-title').val());
+    $('#pj-title').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
+</script>
+</HTML>
