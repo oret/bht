@@ -135,7 +135,12 @@ var socket = io();
     return false;
   });
   socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
+    var li = $('#messages').append(($('<li>').addClass('idea-li'))
+.append($('<div>').addClass('idea-content-text').text(msg))
+.append(($('<div>').addClass('idea-content-footer').text('obaka!'))
+.append($('<span>').addClass('idea-good-num').text('2500'))
+));
+
   });
 </script>
 </HTML>
