@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gulpFilter = require('gulp-filter');
 var mainBowerFiles = require('main-bower-files');
 var nodemon = require('gulp-nodemon');
 var livereload = require('gulp-livereload');
@@ -11,7 +12,9 @@ var path = {
         '!./public/javascripts/libs/**/*.js',
         '!./node_modules/**/*.js',
         '!./bower_components/**/*.js'
-    ]
+    ],
+  js: ['./bower_components/**/*.js'],
+  css: ['./bower_components/**/*.css']
 };
 
 gulp.task('jshint', function() {
@@ -39,11 +42,27 @@ gulp.task('server', function () {
     });
 });
 
-gulp.task('bower-files', function() {
-    return gulp.src(mainBowerFiles(/* options */),
-               { base: './bower_components' })
-               .pipe(gulp.dest('./public/javascripts/libs'));
+//gulp.task('bower-files', function() {
+//    return gulp.src(mainBowerFiles(/* options */),
+//               { base: './bower_components' })
+//               .pipe(gulp.dest('./public/javascripts/libs'));
+//});
+
+
+gulp.task('bench-jsmin', function() {
+  gulp.src(path.js)
+//    .pipe(concat('all.min.js'))
+//    .pipe(minifyJs())
+    .pipe(gulp.dest('./public/javascripts/libs'));
 });
 
+gulp.task('bench-cssmin', function() {
+  gulp.src(path.css)
+//    .pipe(concat('all.min.css'))
+//    .pipe(minifyCss())
+    .pipe(gulp.dest('./public/stylesheets/libs'));
+});
+
+gulp.task('bower-files', ['bench-jsmin', 'bench-cssmin']);
 gulp.task('lint', ['gjslint', 'jshint']);
 gulp.task('default', ['bower-files', 'lint']);
