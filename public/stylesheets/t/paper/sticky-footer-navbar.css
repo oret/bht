@@ -37,14 +37,3 @@ body > .container {
 code {
   font-size: 80%;
 }
-
-/* Custom page CSS bht
--------------------------------------------------- */
-.logo-top {
-  min-width: 40%;
-}
-
-.logo-top img {
-  height: 25px;
-  float: left;
-}
