@@ -37,4 +37,9 @@ router.get('/mock', function(req, res) {
   res.render('mock', { title: 'mock' });
 });
 
+/* mock-chat. */
+router.get('/mockchat', function(req, res) {
+  res.render('mock-chat', { title: 'mock-chat' });
+});
+
 module.exports = router;
