@@ -6,6 +6,6 @@ $(document).ready(function() {
         return false;
     });
     socket.on('project chat', function(data) {
-        $('div').prepend(data + '<br>');
+        $('#chat-line').prepend(data + '<br>');
     });
 });
