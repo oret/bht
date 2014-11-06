@@ -32,3 +32,8 @@ node_modules
 
 # swp file
 *.swp
+
+# bower files
+bower_components
+public/javascripts/libs
+public/stylesheets/libs
