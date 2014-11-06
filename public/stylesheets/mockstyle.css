@@ -3,10 +3,13 @@
 html {
   position: relative;
   min-height: 100%;
+  font-size: 62.5%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-size: 10px; font-size: 1.0rem;
 }
 .footer {
   position: absolute;
@@ -23,7 +26,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 60px 15px 0;
+  padding: 26px 15px 0;
 }
 .container .text-muted {
   margin: 20px 0;
@@ -40,11 +43,48 @@ code {
 
 /* Custom page CSS bht
 -------------------------------------------------- */
-.logo-top {
+  .logo-top {
   min-width: 40%;
 }
 
 .logo-top img {
   height: 25px;
   float: left;
+}
+.article-img img {
+  clear: both;
+  float: left;
+  width: 40%;
+  padding:0 5px 10px 5px;
+}
+.article-txt {
+  float: left;
+  width: 60%;
+} 
+.article-txt h3 {
+  margin: -2px 0 0 0;
+  font-size: 16px; font-size: 1.6rem;
+line-height: 115%;
+}
+.article-txt p {
+  font-size: 12px; font-size: 1.2rem;
+}
+.more {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  font-size: 16px; font-size: 1.6rem;
+}
+/* mock-detail*/
+
+.article-img-detail img {
+  width: 70%;
+}
+.article-txt-detail h3 {
+  margin: 10px 0;
+  font-size: 20px; font-size: 2.0rem;
+line-height: 115%;
+}
+.article-txt-detail p {
+  font-size: 16px; font-size: 1.6rem;
 }
