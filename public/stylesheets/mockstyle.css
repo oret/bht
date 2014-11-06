@@ -8,7 +8,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 1px;
   font-size: 10px; font-size: 1.0rem;
 }
 .footer {
@@ -26,7 +26,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 26px 15px 0;
+  padding: 30px 15px 0;
 }
 .container .text-muted {
   margin: 20px 0;
@@ -76,15 +76,47 @@ line-height: 115%;
   font-size: 16px; font-size: 1.6rem;
 }
 /* mock-detail*/
+.base {
+  font-size: 16px; font-size: 1.6rem;
+  line-height: 120%;
+ }
 
 .article-img-detail img {
-  width: 70%;
+  width: 100%;
 }
 .article-txt-detail h3 {
   margin: 10px 0;
   font-size: 20px; font-size: 2.0rem;
-line-height: 115%;
+line-height: 120%;
 }
-.article-txt-detail p {
-  font-size: 16px; font-size: 1.6rem;
+.summary dt {
+  border-top: 1px solid #cccccc;
+  color:  #ff0000;
+  padding: 15px 15px 0 15px;
+}
+.summary dd {
+  padding: 0 15px;
+  line-height: 140%;
+}
+.add {
+  margin: 20px 40px;
+  padding: 15px;
+  background-color: #ff0000;
+  text-align: center;
+  color: white;
+}
+.f-menu {
+  border-top: 1px solid #cccccc;
+  text-align: center;
+}
+.f-menu ul{
+  margin: 0;
+  padding: 0;
+}
+.f-menu img {
+  width: 33px;
+ margin: 15px
+}
+.f-menu li {
+  display: inline;
 }
